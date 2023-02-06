@@ -1,9 +1,9 @@
 package javaBasic;
 
-public class Topic_01_Data_Type {
+public class Topic_01_Variable {
 
 	// Hàm khởi tạo
-	public Topic_01_Data_Type() {
+	public Topic_01_Variable() {
 		// Biến toàn cục
 		String studentName;
 	}
@@ -25,11 +25,11 @@ public class Topic_01_Data_Type {
 		System.out.println(statusValue);
 		// Khi bắt đầu run 1 chương trình, đc sinh ra và chỉ bị hủy khi chương trình k
 		// còn tồn tại/ mất đi
-		System.out.println(Topic_01_Data_Type.BROWSER_NAME);
-		System.out.println(Topic_01_Data_Type.statusValue);
-		System.out.println(Topic_01_Data_Type.studentPrice);
+		System.out.println(Topic_01_Variable.BROWSER_NAME);
+		System.out.println(Topic_01_Variable.statusValue);
+		System.out.println(Topic_01_Variable.studentPrice);
 
-		Topic_01_Data_Type topic = new Topic_01_Data_Type();
+		Topic_01_Variable topic = new Topic_01_Variable();
 		System.out.println(studentNumber);
 
 	}
