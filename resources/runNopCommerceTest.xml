@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="NopCommerce">
   <test name="Run on Firefox">
+  <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.nopcommerce.user.User_01_Register_Login"/>
+      <class name="javaBasic.Topic_06_If_Else"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
