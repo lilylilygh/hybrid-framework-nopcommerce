@@ -12,7 +12,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import com.beust.jcommander.Parameters;
+import org.testng.annotations.Parameters;
 
 public class Topic_06_If_Else {
 	
@@ -89,7 +89,7 @@ public class Topic_06_If_Else {
 		}
 		
 	}	
-	@Parameters("browser")
+	@Parameters ("browser")
 	@Test
 	public void TC_03_If_Else_If_else(String browserName) {
 		// Có nhiều điều kiện
