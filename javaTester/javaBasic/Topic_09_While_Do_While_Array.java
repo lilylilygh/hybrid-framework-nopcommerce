@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 // Class
-public class Topic_09_While_DoWhile_Array {
+public class Topic_09_While_Do_While_Array {
 	static Scanner scanner = new Scanner(System.in);
 
 	// Function
@@ -57,7 +57,7 @@ public class Topic_09_While_DoWhile_Array {
 		}
 	}
 	@Test
-	public static void TC_02_Dowhile() {	
+	public static void TC_02_Do_While() {	
 		int number = scanner.nextInt();
 			do {
 				if (number % 2 == 0) {
