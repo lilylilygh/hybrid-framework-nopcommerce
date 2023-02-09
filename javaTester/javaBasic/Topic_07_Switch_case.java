@@ -107,8 +107,8 @@ public class Topic_07_Switch_case {
 		 * Thực hiện tính toán và in kết quả
 		 */
 		int numberA = scanner.nextInt();
-		int numberB = scanner.nextInt();
 		String operator = scanner.next();
+		int numberB = scanner.nextInt();
 		switch (operator) {
 		case "+":
 			System.out.println("A + B = " + (numberA + numberB));
