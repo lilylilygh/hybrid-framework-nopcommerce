@@ -40,7 +40,8 @@ public class Topic_09_While_Do_While_Array {
 //			i++;
 //		} while (i < 5);
 		
-		TC_01_While();
+		Topic_09_While_Do_While_Array topic = new Topic_09_While_Do_While_Array ();
+		topic.TC_03_Ex6();
 	}
 	
 	@Test
@@ -52,10 +53,11 @@ public class Topic_09_While_Do_While_Array {
 		while (number < 100) {
 			if (number % 2 == 0) {
 				System.out.println(number);
-				number++;
-			}	
+			}
+			number++;
 		}
 	}
+	
 	@Test
 	public static void TC_02_Do_While() {	
 		int number = scanner.nextInt();
@@ -67,5 +69,69 @@ public class Topic_09_While_Do_While_Array {
 			} while (number <100);
 		}
 		
-
+	@Test
+	public static void TC_03_Ex2() {
+		/* 2 số nguyen a b
+		 * Hiển thị các số từ a->b % 3 & 5 == 0
+		 * Ex: a=1, b=50 -> Hiển thị: 15,30,45
+		 */
+		int numberA = scanner.nextInt();
+		
+		while (numberA < 100) {
+			// chia hết cho cả 3 và 5
+			if (numberA % 3 == 0 && numberA % 5 == 0) {
+				System.out.println(numberA);
+			}	
+			// cho ra ngoài mới thoát đc vòng lặp
+			numberA++;
+		}
+	}
+	
+	@Test
+	public static void TC_03_Ex3() {
+		/* số nguyên n
+		 * Hiển thị tổng các số lẻ từ 0 -> n
+		 * Ex: n=7 -> Hiển thị màn hình 16 = 1+3+5+7 
+		 */
+		int numberA = scanner.nextInt();
+		int i = 0;
+		while (numberA > 0) {
+			if (numberA % 2 != 0) { //số lẻ
+				i +=numberA; // i = i+numberA
+			}	
+			// cho ra ngoài mới thoát đc vòng lặp
+			numberA--;
+		}
+		System.out.println(i);
+	}
+	
+	@Test
+	public static void TC_03_Ex5() {
+		/* số nguyên n
+		 * Hiển thị n!(n giai thừa)
+		 * Ex: n =5 -> hiển thị 120 = 1*2*3*4*5
+		 */
+		int numberA = scanner.nextInt();
+		int i = 1;
+		while (numberA > 0) {
+			i *= numberA;
+			numberA--;
+		}
+		System.out.println(i);	
+	}
+	@Test
+	public static void TC_03_Ex6() {
+		/*
+		 * in ra console tổng sỗ chẵn từ số nguyên 1->10
+		 */
+		int sum = 0;
+		int i = 1;
+		while (i <= 10) {
+			if (i % 2 == 0) {
+				sum += i;
+			}
+			i++;
+			System.out.println("Tong các số chẵn từ 1 đến 10: " + sum);
+		}
+	}
 }
