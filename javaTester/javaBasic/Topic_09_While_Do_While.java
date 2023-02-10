@@ -40,7 +40,7 @@ public class Topic_09_While_Do_While {
 //			i++;
 //		} while (i < 5);
 		
-		Topic_09_While_Do_While topic = new Topic_09_While_Do_While ();
+		Topic_09_While_Do_While topic = new Topic_09_While_Do_While();
 		topic.TC_03_Ex6();
 	}
 	
@@ -131,7 +131,7 @@ public class Topic_09_While_Do_While {
 				sum += i;
 			}
 			i++;
-			System.out.println("Tong các số chẵn từ 1 đến 10: " + sum);
 		}
+		System.out.println("Tong các số chẵn từ 1 đến 10: " + sum);
 	}
 }
