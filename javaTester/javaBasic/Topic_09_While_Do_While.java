@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 // Class
-public class Topic_09_While_Do_While_Array {
+public class Topic_09_While_Do_While {
 	static Scanner scanner = new Scanner(System.in);
 
 	// Function
@@ -40,7 +40,7 @@ public class Topic_09_While_Do_While_Array {
 //			i++;
 //		} while (i < 5);
 		
-		Topic_09_While_Do_While_Array topic = new Topic_09_While_Do_While_Array ();
+		Topic_09_While_Do_While topic = new Topic_09_While_Do_While ();
 		topic.TC_03_Ex6();
 	}
 	
