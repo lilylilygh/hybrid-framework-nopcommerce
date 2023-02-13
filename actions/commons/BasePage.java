@@ -52,7 +52,7 @@ public class BasePage {
 	}
 	
 	public Alert waitForAlertPresence(WebDriver driver) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		return expliciWait.until(ExpectedConditions.alertIsPresent());
 	}
 	
@@ -140,20 +140,13 @@ public class BasePage {
 		Select select = new Select(getWebElement(driver, xpathLocator));
 		return select.isMultiple();
 	}
-	
-	public void sleepInSecond(long timeInSecond) {
-		try {
-			Thread.sleep(timeInSecond * 1000); 
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+
 	
 	public void selectItemInCustomDropDown(WebDriver driver, String parentLocator, String itemLocator,
 			String expectedItem) {
 		clickToElement(driver, parentLocator);
 		sleepInSecond(2);
-		WebDriverWait explicitWait = new WebDriverWait(driver, 30);
+		WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
 		List<WebElement> allItems = explicitWait
 				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(parentLocator)));
 		for (WebElement item : allItems) {
@@ -267,7 +260,7 @@ public class BasePage {
 	}
 	
 	public boolean areJQueryAndJSLoadedSuccess(WebDriver driver) {
-		WebDriverWait explicitWait = new WebDriverWait(driver, 30);
+		WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
 		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
@@ -306,27 +299,38 @@ public class BasePage {
 	}
 	
 	public void waitForElementVisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForAllElementVisbile(WebDriver driver, String xpathLocator) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForElementInVisible(WebDriver driver, String xpathLocator) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(xpathLocator)));
 	}
 	
 	public void waitForAllElementInVisbile(WebDriver driver, String xpathLocator) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, xpathLocator)));
 	}
 	
 	public void waitForClickable(WebDriver driver, String xpathLocator) {
-		WebDriverWait expliciWait = new WebDriverWait(driver, 30);
+		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
 	}
+	
+	public void sleepInSecond(long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000); 
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private long longTimeout = 30;
+	private long shortTimeout = 5;
 }
