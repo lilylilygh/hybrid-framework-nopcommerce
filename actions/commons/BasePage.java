@@ -318,7 +318,7 @@ public class BasePage {
 		expliciWait.until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, xpathLocator)));
 	}
 	
-	public void waitForClickable(WebDriver driver, String xpathLocator) {
+	public void waitForElementClickable(WebDriver driver, String xpathLocator) {
 		WebDriverWait expliciWait = new WebDriverWait(driver, longTimeout);
 		expliciWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
 	}
