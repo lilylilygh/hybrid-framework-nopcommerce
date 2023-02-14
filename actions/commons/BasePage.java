@@ -103,7 +103,7 @@ public class BasePage {
 		}
 	}
 	
-	public By getByXpath(String xpathLocator) {
+	private By getByXpath(String xpathLocator) {
 		return By.xpath(xpathLocator);
 	}
 	
