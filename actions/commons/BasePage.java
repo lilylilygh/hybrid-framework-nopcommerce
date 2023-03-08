@@ -21,6 +21,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
+	public static BasePage getBaseObject() {
+		return new BasePage();
+	}
+	
 	WebDriver driver;
 
 	public void openPageURL(WebDriver driver, String pageURL) {
@@ -72,7 +76,7 @@ public class BasePage {
 		 waitForAlertPresence(driver).sendKeys(textValue);
 	}
 	
-	public void switchToWindowByID(WebDriver drive, String windowID) {
+	public void switchToWindowByID(WebDriver driver, String windowID) {
 		Set<String> allWindowIDs = driver.getWindowHandles();
 		for (String id : allWindowIDs) {
 			if (!id.equals(windowID)) {
@@ -107,11 +111,11 @@ public class BasePage {
 		return By.xpath(xpathLocator);
 	}
 	
-	public WebElement getWebElement(WebDriver driver, String xpathLocator) {
+	private WebElement getWebElement(WebDriver driver, String xpathLocator) {
 		return driver.findElement(getByXpath(xpathLocator));
 	}
 	
-	public List<WebElement> getListWebElement(WebDriver driver, String xpathLocator) {
+	private List<WebElement> getListWebElement(WebDriver driver, String xpathLocator) {
 		return driver.findElements(getByXpath(xpathLocator));
 		
 	}
