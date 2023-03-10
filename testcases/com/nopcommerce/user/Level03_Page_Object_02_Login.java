@@ -40,11 +40,11 @@ public class Level03_Page_Object_02_Login {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 
-		firstName = "AutomationfcStudent";
+		firstName = "Automation";
 		lastName = "Linh";
 		invalidEmail = "auto@auto.com@.vn";
-		existingEmail = "afc" + generateFakeNumber() + "@gmail.com";
-		notFoundEmail = "afc" + generateFakeNumber() + "@mail.vn";
+		existingEmail = "abc" + generateFakeNumber() + "@gmail.com";
+		notFoundEmail = "abc" + generateFakeNumber() + "@mail.vn";
 		validPassword = "123456";
 		incorrectPassword = "6543835";
 
