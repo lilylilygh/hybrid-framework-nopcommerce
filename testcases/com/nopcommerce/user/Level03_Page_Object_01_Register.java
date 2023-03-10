@@ -37,9 +37,9 @@ public class Level03_Page_Object_01_Register {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 
-		firstName = "AutomationfcStudent";
+		firstName = "Automation";
 		lastName = "Linh";
-		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
+		emailAddress = "abc" + generateFakeNumber() + "@gmail.com";
 		password = "123456";
 		
 		homePage = new HomePageObject(driver);
@@ -142,7 +142,7 @@ public class Level03_Page_Object_01_Register {
 		registerPage.inputToPaswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(emailAddress);
 		registerPage.clickToRegisterButton();
-		Assert.assertEquals(registerPage.getErrorMessageAtPasswordTextbox(),
+		Assert.assertEquals(registerPage.getErrorMessageAtConfirmPasswordTextbox(),
 				"The password and confirmation password do not match.");
 	}
 
