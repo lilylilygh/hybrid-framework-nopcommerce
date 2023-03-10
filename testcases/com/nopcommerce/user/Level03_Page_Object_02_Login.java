@@ -19,13 +19,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
 public class Level03_Page_Object_02_Login {
-	// private chỉ dùng trong class này, k chia sẻ
-	// Declare
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmail, notFoundEmail, existingEmail, validPassword, incorrectPassword;
-	private BasePage basePage;
-
-	// Decalre + Init
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
@@ -34,21 +29,17 @@ public class Level03_Page_Object_02_Login {
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		basePage = BasePage.getBasePageObject();
 		driver = new FirefoxDriver();
-		// Mở URL lên nó qua trang HomePage
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-
+		homePage = new HomePageObject(driver);
 		firstName = "Automation";
 		lastName = "Linh";
 		invalidEmail = "auto@auto.com@.vn";
-		existingEmail = "abc" + generateFakeNumber() + "@gmail.com";
-		notFoundEmail = "abc" + generateFakeNumber() + "@mail.vn";
+		existingEmail = "abc" + generateFakeNumber() + "@mail.vn";
+		notFoundEmail = "abc" + generateFakeNumber() + "@mail.com";
 		validPassword = "123456";
 		incorrectPassword = "6543835";
-
-		homePage = new HomePageObject(driver);
 
 		System.out.println("Pre-condition - Step 01:Click to Register link");
 		homePage.clicktoRegisterLink();
@@ -134,8 +125,6 @@ public class Level03_Page_Object_02_Login {
 		// Login success -> Return to Homepage
 		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
-		
-		homePage.clickToMyAccountLink();
 	}
 
 	@AfterClass
