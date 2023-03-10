@@ -21,7 +21,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
-	public static BasePage getBaseObject() {
+	
+	public static BasePage getBasePageObject() {
 		return new BasePage();
 	}
 	
@@ -335,6 +336,5 @@ public class BasePage {
 		}
 	}
 	
-	private long longTimeout = 30;
-	private long shortTimeout = 5;
+	private long longTimeout = 10;
 }

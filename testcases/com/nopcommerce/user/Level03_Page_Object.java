@@ -17,25 +17,32 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level3_Page_Object_02_Login {
+public class Level03_Page_Object extends BasePage {
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		basePage = BasePage.getBaseObject();
 		driver = new FirefoxDriver();
+		// Mở URL lên nó qua trang HomePage
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		
-		firstName = "AutomationfcStudent"; 
-		lastName = "Linh"; 
+
+		firstName = "AutomationfcStudent";
+		lastName = "Linh";
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
 		password = "123456";
+
+		homePage = new HomePageObject(driver);
+		registerPage = new RegisterPageObject(driver);
 	}
 
 	@Test
 	public void Register_01_Empty_Data() {
 		// goto register page
 		homePage.clicktoRegisterLink();
+
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
+
 		registerPage.clickToRegisterButton();
 
 		Assert.assertEquals(registerPage.getErrorMessageAtFristnameTextbox(), "First name is required.");
@@ -49,6 +56,9 @@ public class Level3_Page_Object_02_Login {
 	public void Register_02_Invalid_Email() {
 		homePage.clicktoRegisterLink();
 
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
+
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
 		registerPage.inputToEmailTextbox("123@456!@#$");
@@ -61,6 +71,9 @@ public class Level3_Page_Object_02_Login {
 	@Test
 	public void Register_03_Success() {
 		homePage.clicktoRegisterLink();
+
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -76,6 +89,9 @@ public class Level3_Page_Object_02_Login {
 	public void Register_04_Existing_Email() {
 		homePage.clicktoRegisterLink();
 
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
+
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
@@ -88,6 +104,9 @@ public class Level3_Page_Object_02_Login {
 	@Test
 	public void Register_05_Password_Less_Than_6_Chars() {
 		homePage.clicktoRegisterLink();
+
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -102,6 +121,9 @@ public class Level3_Page_Object_02_Login {
 	@Test
 	public void Register_06_Invalid_Confirm_Password() {
 		homePage.clicktoRegisterLink();
+
+		// Click Register link -> Nhảy qua trang Register
+		registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -122,14 +144,14 @@ public class Level3_Page_Object_02_Login {
 		Random rand = new Random();
 		return rand.nextInt(9999);
 	}
-	
-	//private chỉ dùng trong class này, k chia sẻ
+
+	// private chỉ dùng trong class này, k chia sẻ
 	// Declare
 	private WebDriver driver;
 	private String firstName, lastName, emailAddress, password;
 	private BasePage basePage;
-	
-	//Decalre + Init
+
+	// Decalre + Init
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private String projectPath = System.getProperty("user.dir");

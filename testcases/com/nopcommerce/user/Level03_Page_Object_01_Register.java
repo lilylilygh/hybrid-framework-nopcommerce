@@ -17,22 +17,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level3_Page_Object_01_Register {
+public class Level03_Page_Object_01_Register {
+	// private chỉ dùng trong class này, k chia sẻ
+	// Declare
+	private WebDriver driver;
+	private String firstName, lastName, emailAddress, password;
+
+	// Decalre + Init
+	private HomePageObject homePage;
+	private RegisterPageObject registerPage;
+	private String projectPath = System.getProperty("user.dir");
+
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		basePage = BasePage.getBaseObject();
+		// basePage = BasePage.getBasePageObject();
 		driver = new FirefoxDriver();
 		// Mở URL lên nó qua trang HomePage
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		homePage = new HomePageObject(driver);
 
 		firstName = "AutomationfcStudent";
 		lastName = "Linh";
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
 		password = "123456";
-
+		
 		homePage = new HomePageObject(driver);
 		registerPage = new RegisterPageObject(driver);
 	}
@@ -43,7 +52,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.clickToRegisterButton();
 
@@ -59,7 +68,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -75,7 +84,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -92,7 +101,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -108,7 +117,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -117,7 +126,7 @@ public class Level3_Page_Object_01_Register {
 		registerPage.inputToConfirmPasswordTextbox("123");
 		registerPage.clickToRegisterButton();
 		Assert.assertEquals(registerPage.getErrorMessageAtPasswordTextbox(),
-				"Password must meet the following rules:\\nmust have at least 6 characters");
+				"Password must meet the following rules:\nmust have at least 6 characters");
 	}
 
 	@Test
@@ -125,7 +134,7 @@ public class Level3_Page_Object_01_Register {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		//registerPage = new RegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -146,15 +155,4 @@ public class Level3_Page_Object_01_Register {
 		Random rand = new Random();
 		return rand.nextInt(9999);
 	}
-
-	// private chỉ dùng trong class này, k chia sẻ
-	// Declare
-	private WebDriver driver;
-	private String firstName, lastName, emailAddress, password;
-	private BasePage basePage;
-
-	// Decalre + Init
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private String projectPath = System.getProperty("user.dir");
 }

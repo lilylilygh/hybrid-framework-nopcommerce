@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level1_Apply_BasePage extends BasePage {
+public class Level02_Apply_BasePage_I {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String emailAddress;
@@ -32,7 +32,7 @@ public class Level1_Apply_BasePage extends BasePage {
 		// có thể dùng projectPath.concat
 
 		// Che giấu đi khởi tao của 1 object
-		basePage = BasePage.getBaseObject();
+		basePage = new BasePage();
 
 		driver = new FirefoxDriver();
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
