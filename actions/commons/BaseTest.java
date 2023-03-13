@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -21,13 +22,13 @@ public class BaseTest {
 			// Headless chạy ngầm, k bật giao diện trình duyệt lên
 		} else if (browserName.equals("h_firefox")) {
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-			
+
 			// Browser Option: selenium 3.xx
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("-headless");
 			options.addArguments("window-size=1920x1080");
 			driverBaseTest = new FirefoxDriver(options);
-			
+
 		} else if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 			driverBaseTest = new ChromeDriver();
@@ -37,15 +38,23 @@ public class BaseTest {
 		} else if (browserName.equals("edge")) {
 			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
 			driverBaseTest = new EdgeDriver();
-		} else if (browserName.equals("h_edge")) {
-			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
-			driverBaseTest = new EdgeDriver();
 		} else if (browserName.equals("opera")) {
 			System.setProperty("webdriver.opera.driver", projectPath + "\\browserDrivers\\operadriver.exe");
 			driverBaseTest = new OperaDriver();
-		} else if (browserName.equals("h_opera")) {
-			System.setProperty("webdriver.opera.driver", projectPath + "\\browserDrivers\\operadriver.exe");
-			driverBaseTest = new OperaDriver();
+		} else if (browserName.equals("coccoc")) {
+			// Cốc cốc browser trừ đi 5-6 version -> ra ChromeDriver
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver_93.exe");
+			ChromeOptions options = new ChromeOptions();
+
+			options.setBinary("C:\\Program files(86)\\CocCoc\\Browser\\Application\\browser.exe");
+
+			driverBaseTest = new ChromeDriver(options);
+		} else if (browserName.equals("brave")) {
+			// Brave browser version nào dùng chromedriver version đó
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver_95.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\Program files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
+			driverBaseTest = new ChromeDriver();
 		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
