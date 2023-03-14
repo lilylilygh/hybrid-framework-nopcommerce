@@ -18,22 +18,22 @@ public class LoginPageObject extends BasePage {
 	}
 
 	public String getErrorMessageAtEmailTextbox() {
-		waitForElementInVisible(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
 	}
 
 	public String getErrorMessageUnsuccessfull() {
-		waitForElementInVisible(driver, LoginPageUI.UNSUCCESSFULL_ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.UNSUCCESSFULL_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.UNSUCCESSFULL_ERROR_MESSAGE);
 	}
 	
 	public void inputToEmailTextbox(String invalidEmail) {
-		waitForElementInVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
 		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, invalidEmail);	
 	}
 
 	public void inputToPasswordTextbox(String password) {
-		waitForElementInVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
 		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
 	}
 

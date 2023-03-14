@@ -35,7 +35,6 @@ public class Level04_Multiple_Browser extends BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		System.out.println("Run on" + browserName);
 		driver = getBrowserDriver(browserName);		
 		
 		homePage = new HomePageObject(driver);

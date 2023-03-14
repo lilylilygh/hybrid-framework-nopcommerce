@@ -10,19 +10,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseTest {
 	private WebDriver driverBaseTest;
 	private String projectPath = System.getProperty("user.dir");
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		if (browserName.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
 			// Headless dung cho Frontend de run Unit Test/Data Analyst/MMO (Crawl Data)
 			// Headless chạy ngầm, k bật giao diện trình duyệt lên
 		} else if (browserName.equals("h_firefox")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-
+			WebDriverManager.firefoxdriver().setup();
+			
 			// Browser Option: selenium 3.xx
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("-headless");
@@ -43,7 +45,7 @@ public class BaseTest {
 			driverBaseTest = new OperaDriver();
 		} else if (browserName.equals("coccoc")) {
 			// Cốc cốc browser trừ đi 5-6 version -> ra ChromeDriver
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver_93.exe");
+			WebDriverManager.chromedriver().driverVersion("93.0.4577.63").setup();
 			ChromeOptions options = new ChromeOptions();
 
 			options.setBinary("C:\\Program files(86)\\CocCoc\\Browser\\Application\\browser.exe");

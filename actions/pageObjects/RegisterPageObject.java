@@ -19,7 +19,10 @@ public class RegisterPageObject extends BasePage {
 	}
 
 	public String getErrorMessageAtFristnameTextbox() {
-		waitForElementInVisible(driver, RegisterPageUI.FIRST_NAME_ERROR_MESSAGE);
+		// Chỗ này em đang dùng wait invisible
+		// waitForElementInVisible(driver, RegisterPageUI.FIRST_NAME_ERROR_MESSAGE);
+		
+		waitForElementVisible(driver, RegisterPageUI.FIRST_NAME_ERROR_MESSAGE);
 		return getElementText(driver, RegisterPageUI.FIRST_NAME_ERROR_MESSAGE);
 	}
 

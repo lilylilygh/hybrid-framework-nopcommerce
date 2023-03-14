@@ -108,6 +108,17 @@ public class BasePage {
 		}
 	}
 	
+	public void closeAllTabWithoutParent(WebDriver driver, String parentID) {
+		Set<String> allwindowIDs = driver.getWindowHandles();
+		for (String id : allwindowIDs) {
+			if (!id.equals(parentID)) {
+				driver.switchTo().window(id);
+				driver.close();
+			}
+			driver.switchTo().window(parentID);
+		}
+	}
+	
 	private By getByXpath(String xpathLocator) {
 		return By.xpath(xpathLocator);
 	}

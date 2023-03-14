@@ -148,7 +148,7 @@ public class Level03_Page_Object_01_Register {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		// driver.quit();
 	}
 
 	public int generateFakeNumber() {
