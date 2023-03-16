@@ -37,12 +37,12 @@ public class LoginPageObject extends BasePageFactory {
 	}
 
 	public String getErrorMessageAtEmailTextbox() {
-		waitForElementInVisible(driver, emailErrorMessage);
+		waitForElementVisible(driver, emailErrorMessage);
 		return getElementText(driver, emailErrorMessage);
 	}
 
 	public String getErrorMessageUnsuccessfull() {
-		waitForElementInVisible(driver, unsuccessErrorMessage);
+		waitForElementVisible(driver, unsuccessErrorMessage);
 		return getElementText(driver, unsuccessErrorMessage);
 	}
 	
@@ -52,7 +52,7 @@ public class LoginPageObject extends BasePageFactory {
 	}
 
 	public void inputToPasswordTextbox(String password) {
-		waitForElementInVisible(driver, passwordTextbox);
+		waitForElementVisible(driver, passwordTextbox);
 		sendkeyToElement(driver, passwordTextbox, password);
 	}
 }

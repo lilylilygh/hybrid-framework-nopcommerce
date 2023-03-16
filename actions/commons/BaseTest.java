@@ -18,8 +18,7 @@ public class BaseTest {
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		if (browserName.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driverBaseTest = new FirefoxDriver();
+			driverBaseTest = WebDriverManager.firefoxdriver().create();
 			// Headless dung cho Frontend de run Unit Test/Data Analyst/MMO (Crawl Data)
 			// Headless chạy ngầm, k bật giao diện trình duyệt lên
 		} else if (browserName.equals("h_firefox")) {
@@ -32,17 +31,14 @@ public class BaseTest {
 			driverBaseTest = new FirefoxDriver(options);
 
 		} else if (browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-			driverBaseTest = new ChromeDriver();
+			driverBaseTest = WebDriverManager.chromedriver().create();
 		} else if (browserName.equals("h_chrome")) {
 			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 			driverBaseTest = new ChromeDriver();
 		} else if (browserName.equals("edge")) {
-			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
-			driverBaseTest = new EdgeDriver();
+			driverBaseTest = WebDriverManager.edgedriver().create();
 		} else if (browserName.equals("opera")) {
-			System.setProperty("webdriver.opera.driver", projectPath + "\\browserDrivers\\operadriver.exe");
-			driverBaseTest = new OperaDriver();
+			driverBaseTest = WebDriverManager.operadriver().create();
 		} else if (browserName.equals("coccoc")) {
 			// Cốc cốc browser trừ đi 5-6 version -> ra ChromeDriver
 			WebDriverManager.chromedriver().driverVersion("93.0.4577.63").setup();

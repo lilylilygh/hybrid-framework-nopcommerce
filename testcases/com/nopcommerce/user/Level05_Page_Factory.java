@@ -2,7 +2,6 @@ package com.nopcommerce.user;
 
 import org.testng.annotations.Test;
 
-import commons.BasePage;
 import commons.BaseTest;
 import pageFactory.HomePageObject;
 import pageFactory.LoginPageObject;
@@ -12,11 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
@@ -60,12 +56,6 @@ public class Level05_Page_Factory extends BaseTest {
 
 		System.out.println("Pre-condition - Step 04:Verify success message displayed");
 		Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
-
-		System.out.println("Pre-condition - Step 05:Click to Logout link");
-		registerPage.clicktoLogoutLink();
-
-		// Logout -> Nhảy qua trang Homepage
-		homePage = new HomePageObject(driver);
 	}
 
 
