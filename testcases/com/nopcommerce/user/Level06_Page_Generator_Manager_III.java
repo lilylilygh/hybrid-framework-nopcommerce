@@ -6,7 +6,7 @@ import commons.BasePage;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.CustomerInfoPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 
@@ -29,7 +29,7 @@ public class Level06_Page_Generator_Manager_III extends BaseTest {
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	private String projectPath = System.getProperty("user.dir");
-	private MyAccountPageObject myAccountPage;
+	private CustomerInfoPageObject myAccountPage;
 
 	@Parameters("browser")
 	@BeforeClass
