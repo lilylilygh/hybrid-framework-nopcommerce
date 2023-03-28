@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce.user;
 
 public class HomePageUI {
 	// static: cho phép truy cập trực tiếp từ tên class, có thể chia sẻ dữ liệu giữa nhiều luồng khác nhau

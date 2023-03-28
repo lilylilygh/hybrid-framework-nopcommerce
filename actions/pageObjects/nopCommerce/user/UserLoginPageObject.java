@@ -1,28 +1,28 @@
-package pageObjects.nopCommerce;
+package pageObjects.nopCommerce.user;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import commons.BasePage;
-import pageUIs.LoginPageUI;
+import pageUIs.nopCommerce.user.LoginPageUI;
 
-public class LoginPageObject extends BasePage {
+public class UserLoginPageObject extends BasePage {
 	private WebDriver driver;
 	private WebDriverWait expliciWait;
 
-	public LoginPageObject(WebDriver driver) {
+	public UserLoginPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 	
-	public LoginPageObject(WebDriver driver, WebDriverWait expliciwait) {
+	public UserLoginPageObject(WebDriver driver, WebDriverWait expliciwait) {
 		this.driver = driver;
 		this.expliciWait = expliciwait;
 	}
 
-	public HomePageObject clickToLoginButton() {
+	public UserHomePageObject clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);	
-		return new HomePageObject(driver);
+		return new UserHomePageObject(driver);
 	}
 
 	public String getErrorMessageAtEmailTextbox() {
@@ -35,14 +35,21 @@ public class LoginPageObject extends BasePage {
 		return getElementText(driver, LoginPageUI.UNSUCCESSFULL_ERROR_MESSAGE);
 	}
 	
-	public void inputToEmailTextbox(String invalidEmail) {
+	public void inputToEmailTextbox(String emailAddress) {
 		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, invalidEmail);	
+		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, emailAddress);	
 	}
 
 	public void inputToPasswordTextbox(String password) {
 		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
 		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
+	}
+
+	public UserHomePageObject loginAsUser(String emailAddress, String password) {
+		inputToEmailTextbox(emailAddress);
+		inputToPasswordTextbox(password);
+		return clickToLoginButton();
+		
 	}
 
 	

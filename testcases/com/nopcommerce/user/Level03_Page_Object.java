@@ -3,8 +3,8 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 
@@ -31,8 +31,8 @@ public class Level03_Page_Object extends BasePage {
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
 		password = "123456";
 
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
+		homePage = new UserHomePageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 	}
 
 	@Test
@@ -41,7 +41,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.clickToRegisterButton();
 
@@ -57,7 +57,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -73,7 +73,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -90,7 +90,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -106,7 +106,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -123,7 +123,7 @@ public class Level03_Page_Object extends BasePage {
 		homePage.clicktoRegisterLink();
 
 		// Click Register link -> Nhảy qua trang Register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -152,7 +152,7 @@ public class Level03_Page_Object extends BasePage {
 	private BasePage basePage;
 
 	// Decalre + Init
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 	private String projectPath = System.getProperty("user.dir");
 }

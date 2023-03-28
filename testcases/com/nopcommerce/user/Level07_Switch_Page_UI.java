@@ -4,14 +4,14 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyProductReviewPageObject;
-import pageObjects.nopCommerce.AddressPageObject;
-import pageObjects.nopCommerce.CustomerInfoPageObject;
-import pageObjects.nopCommerce.PageGeneratorManager;
-import pageObjects.nopCommerce.RegisterPageObject;
-import pageObjects.nopCommerce.RewardPointPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopCommerce.user.UserAddressPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -51,8 +51,8 @@ public class Level07_Switch_Page_UI extends BaseTest {
 	}
 
 	public void User_02_Login() {
-		loginPage = homePage.clickToLoginLink();
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
+		loginPage = homePage.openLoginPage();
 		loginPage.inputToEmailTextbox(emailAddress);
 		loginPage.inputToPasswordTextbox(validPassword);
 		homePage = loginPage.clickToLoginButton();
@@ -60,7 +60,7 @@ public class Level07_Switch_Page_UI extends BaseTest {
 	}
 
 	public void User_03_Customer_Info() {
-		customerInfoPage = homePage.clickToMyAccountLink();
+		customerInfoPage = homePage.clickToMyAccountLink(driver);
 		Assert.assertTrue(customerInfoPage.isCustomerInfoPageDisplayed());
 	}
 
@@ -107,13 +107,13 @@ public class Level07_Switch_Page_UI extends BaseTest {
 	}
 
 	private WebDriver driver;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
-	private CustomerInfoPageObject customerInfoPage;
-	private AddressPageObject addressPage;
-	private MyProductReviewPageObject myProductReviewPage;
-	private RewardPointPageObject rewardPointPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInfoPageObject customerInfoPage;
+	private UserAddressPageObject addressPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
+	private UserRewardPointPageObject rewardPointPage;
 	private String firstName, lastName, emailAddress, validPassword;
 
 }

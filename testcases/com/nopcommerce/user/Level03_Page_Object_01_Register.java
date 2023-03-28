@@ -3,8 +3,8 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 
@@ -24,8 +24,8 @@ public class Level03_Page_Object_01_Register {
 	private String firstName, lastName, emailAddress, password;
 
 	// Decalre + Init
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 	private String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
@@ -42,8 +42,8 @@ public class Level03_Page_Object_01_Register {
 		emailAddress = "abc" + generateFakeNumber() + "@gmail.com";
 		password = "123456";
 		
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
+		homePage = new UserHomePageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 	}
 
 	@Test

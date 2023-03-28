@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -23,9 +23,9 @@ import org.testng.annotations.AfterClass;
 public class Level06_Page_Generator_Manager_II extends BaseTest {
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmail, notFoundEmail, existingEmail, validPassword, incorrectPassword;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
 	private String projectPath = System.getProperty("user.dir");
 
 	@Parameters("browser")
@@ -33,7 +33,7 @@ public class Level06_Page_Generator_Manager_II extends BaseTest {
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);	
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 		
 		firstName = "Automation";
 		lastName = "Linh";
@@ -98,7 +98,7 @@ public class Level06_Page_Generator_Manager_II extends BaseTest {
 
 	public void Login_05_Existing_Email_Incorrect_Password() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox(incorrectPassword);
 		loginPage.clickToLoginButton();

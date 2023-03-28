@@ -59,7 +59,7 @@ public class BaseTest {
 		}
 
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driverBaseTest.get("https://demo.nopcommerce.com/");
+		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
 		return driverBaseTest;
 	}
 	
