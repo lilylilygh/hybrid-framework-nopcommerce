@@ -51,7 +51,7 @@ public class Level08_Switch_Role extends BaseTest {
 		Assert.assertTrue(userHomePage.isMyAccountLinkDisplayed());
 
 		// Homepage -> Customer Info
-		userCustomerInfoPage = userHomePage.openMyAccountPage();
+		userCustomerInfoPage = userHomePage.clickToMyAccountLink(driver);
 
 		// customer info > click logout -> Homepage
 		userHomePage = userCustomerInfoPage.clickToLogoutLinkAtUserPage(driver);

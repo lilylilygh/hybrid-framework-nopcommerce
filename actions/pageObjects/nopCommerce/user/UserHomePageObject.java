@@ -20,13 +20,13 @@ public class UserHomePageObject extends BasePage{
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
 		// Cach 2: return new RegisterPageObject(driver);
 		// Cach 3:
-		return PageGeneratorManager.getRegisterPage(driver);
+		return PageGeneratorManager.getUserRegisterPage(driver);
 	}
 
 	public UserLoginPageObject openLoginPage() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 
 	public boolean isMyAccountLinkDisplayed() {
@@ -37,12 +37,6 @@ public class UserHomePageObject extends BasePage{
 	public UserCustomerInfoPageObject clickToMyAccountLink(WebDriver driver) {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getCustomerInfoPage(driver);
-	}
-
-
-	
-	
-	
-	
+		return PageGeneratorManager.getUserCustomerInfoPage(driver);
+	}	
 }

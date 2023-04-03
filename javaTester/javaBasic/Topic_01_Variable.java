@@ -1,5 +1,7 @@
 package javaBasic;
-
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 public class Topic_01_Variable {
 
 	// Hàm khởi tạo
