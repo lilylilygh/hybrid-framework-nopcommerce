@@ -1,6 +1,6 @@
 package javaBasic;
 
-public class Topic_05_Casting {
+public class Topic_05_Primitive_Casting {
 
 	public static void main(String[] args) {
 		// Ép kiểu ngầm định: K  mất dữ liệu
@@ -17,7 +17,7 @@ public class Topic_05_Casting {
 		double dNumber = fNumber;
 		System.out.println(dNumber);
 		
-		// Ép kiểu tường minh -> Cần phải cast)
+		// Ép kiểu tường minh (Cast)
 		double doNumber = 65432178556622259d;
 		System.out.println(doNumber);
 		float flNumber = (float) doNumber;

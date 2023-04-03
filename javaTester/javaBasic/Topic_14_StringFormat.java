@@ -42,7 +42,7 @@ public class Topic_14_StringFormat {
 //		// %s: pattern de thay the cho 1 tham so kieu String
 //		System.out.println("Click to: " + locator);
 //	}
-//	// 2 tham số động
+//	// 2 tham số động cùng 1 kiểu dữ liệu 
 //	public static void clickToLink(String dynamicLocator, String areaName, String pageName) {
 //		String locator = String.format(dynamicLocator, areaName, pageName);
 //		System.out.println("Click to: " + locator);

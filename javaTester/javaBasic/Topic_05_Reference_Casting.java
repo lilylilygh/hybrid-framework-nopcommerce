@@ -40,6 +40,8 @@ public class Topic_05_Reference_Casting {
 		
 		WebDriver driver = null;
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		
+		String homePageTitle = (String) jsExecutor.executeScript("return document.title;");
 	}
 
 }
