@@ -30,7 +30,7 @@ public class Level07_Switch_Page_UI extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);	
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		
 		firstName = "Automation";
 		lastName = "Linh";
@@ -92,13 +92,6 @@ public class Level07_Switch_Page_UI extends BaseTest {
 		addressPage = myProductReviewPage.openAddressPage(driver);
 		
 		customerInfoPage = addressPage.openCustomerInfoPage(driver);
-	}
-	
-	public void User_05_Switch_Role() {
-		// Role User -> Admin
-		
-		// Admin -> User
-		
 	}
 	
 	@AfterClass

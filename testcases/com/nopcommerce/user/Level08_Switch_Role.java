@@ -78,9 +78,7 @@ public class Level08_Switch_Role extends BaseTest {
 
 		// Login as User role
 		userHomePage = userLoginPage.loginAsUser(userEmailAddress, userPassword);
-		Assert.assertTrue(userHomePage.isMyAccountLinkDisplayed());
-		
-		
+		Assert.assertTrue(userHomePage.isMyAccountLinkDisplayed());		
 	}
 
 	@AfterClass
