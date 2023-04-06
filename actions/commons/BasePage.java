@@ -497,6 +497,6 @@ public class BasePage {
 		}
 	}
 
-	private long longTimeout = 10;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 
 }
