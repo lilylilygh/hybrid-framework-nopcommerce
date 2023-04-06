@@ -45,8 +45,11 @@ public class BaseTest {
 			WebDriverManager.chromedriver().driverVersion("93.0.4577.63").setup();
 			ChromeOptions options = new ChromeOptions();
 
+			if(GlobalConstants.OS_NAME.startsWith("Windows")) {
 			options.setBinary("C:\\Program files(86)\\CocCoc\\Browser\\Application\\browser.exe");
-
+			} else {
+			options.setBinary("....");
+			}
 			driverBaseTest = new ChromeDriver(options);
 		} else if (browserName.equals("brave")) {
 			// Brave browser version nào dùng chromedriver version đó
@@ -58,7 +61,7 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid");
 		}
 
-		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
 		return driverBaseTest;
 	}
