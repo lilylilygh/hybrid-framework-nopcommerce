@@ -10,6 +10,7 @@ import javax.xml.xpath.XPath;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -129,7 +130,7 @@ public class BasePage {
 
 	// LocatorType: id=/ css=/ xpath=/ name=/ class=
 	// S4. getByLocator: locatorType = xpath=//div[contains(@class,'account-navigation')]//a[text()='Customer info']
-	private By getByLocator(String locatorType) {
+	public By getByLocator(String locatorType) {
 		By by = null;
 		System.out.println("Locator type = " + locatorType);
 		if (locatorType.startsWith("id=") || locatorType.startsWith("ID=") || locatorType.startsWith("Id=")) {
@@ -155,7 +156,7 @@ public class BasePage {
 	// S2. BasePageUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName = dynamicValues
 	// locatorType = xpath=//div[contains(@class,'account-navigation')]//a[text()='%s']
 	// pageName = dynamicValues = Customer info
-	private String getDynamicXpath(String locatorType, String... dynamicValues) {
+	public String getDynamicXpath(String locatorType, String... dynamicValues) {
 		System.out.println("Locator Type Before = " + locatorType);
 		if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
 			locatorType = String.format(locatorType, (Object[]) dynamicValues);
@@ -171,11 +172,11 @@ public class BasePage {
 	// xpath=//div[contains(@class,'account-navigation')]//a[text()='Customer info']
 	// S3. getByLocator
 	// S5. findElement
-	private WebElement getWebElement(WebDriver driver, String locatorType) {
+	public WebElement getWebElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocator(locatorType));
 	}
 
-	private List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
+	public List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
 		return driver.findElements(getByLocator(locatorType));
 
 	}
@@ -312,6 +313,11 @@ public class BasePage {
 	public void hoverMousetoElement(WebDriver driver, String locatorType) {
 		Actions action = new Actions(driver);
 		action.moveToElement(getWebElement(driver, locatorType)).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locatorType, Keys keys, String...dynamicValues) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), keys).perform();
 	}
 
 	public void scrollToBottomPage(WebDriver driver) {
