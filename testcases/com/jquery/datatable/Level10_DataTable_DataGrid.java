@@ -65,7 +65,7 @@ public class Level10_DataTable_DataGrid extends BaseTest {
 	}
 
 	@Test
-	public void Table_03() {
+	public void Table_03_Readfile_ToEnterToHeader() {
 		// Đọc dữ liệu của file country.txt ra
 		// Lưu vào 1 List<String> = Expected Value
 		// Actual value
@@ -74,8 +74,42 @@ public class Level10_DataTable_DataGrid extends BaseTest {
 	}
 	
 	@Test
-	public void Table_04() {
+	public void Table_04_Action_At_Any_Row() {
+		homePage.clickToLoadButton();
+		homePage.sleepInSecond(2);
 		
+		// Value để nhập liệu - tham số 1
+		// Row number: tại row nào 
+		// Ex: Nhap vao text box tai dong so 3/5/2
+		// Column name: Company/ Contact Person/ Order Placed
+		homePage.enterToTextBoxByColumnNameAtRowNumber("Company", "1", "Bogisich Group");
+		homePage.sleepInSecond(3);
+		
+		homePage.enterToTextBoxByColumnNameAtRowNumber("Contact Person", "2", "Blondy Boggis");
+		homePage.sleepInSecond(3);
+		
+		homePage.enterToTextBoxByColumnNameAtRowNumber("Order Placed", "3", "111");
+		homePage.sleepInSecond(3);
+		
+		homePage.selectDropdownByColumnNameAtRowNumber("Country", "6", "Taiwan");
+		homePage.sleepInSecond(3);
+		
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?", "3");
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?", "8");
+		
+		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?", "1");
+		
+		homePage.clickToIconByRowNumber("1", "Remove Current Row");
+		
+		homePage.clickToIconByRowNumber("1", "Insert Row Above");
+		
+		homePage.clickToIconByRowNumber("3", "Move Up");
+
+		homePage.clickToIconByRowNumber("5", "Remove Current Row");
+		homePage.clickToIconByRowNumber("4", "Remove Current Row");
+		homePage.clickToIconByRowNumber("3", "Remove Current Row");
+		homePage.clickToIconByRowNumber("2", "Remove Current Row");
+		homePage.clickToIconByRowNumber("1", "Remove Current Row");
 	}
 
 	@AfterClass
