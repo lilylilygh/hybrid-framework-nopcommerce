@@ -1,4 +1,4 @@
-package com.jquery.datatable;
+package com.jquery;
 
 import org.testng.annotations.Test;
 
