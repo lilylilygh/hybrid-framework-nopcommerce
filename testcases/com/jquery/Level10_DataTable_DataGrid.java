@@ -4,8 +4,9 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.jQuery.HomePageObject;
-import pageObjects.jQuery.PageGeneratorManager;
+import pageObjects.jQuery.DataTable.HomePageObject;
+import pageObjects.jQuery.DataTable.PageGeneratorManager;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
